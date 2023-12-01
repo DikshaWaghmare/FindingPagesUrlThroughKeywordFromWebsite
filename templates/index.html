@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyword Search</title>
+</head>
+<body>
+    <h1>Enter Website URL and Keyword</h1>
+    <form action="/extract" method="post">
+        <label for="websiteUrl">Website URL:</label>
+        <input type="text" id="websiteUrl" name="websiteUrl"><br><br>
+        <label for="keyword">Keyword:</label>
+        <input type="text" id="keyword" name="keyword"><br><br>
+        <input type="submit" value="Extract">
+    </form>
+
+    {% if urls %}
+        <h2>Matching URLs for keyword :"{{keyword}}":</h2>
+        <ul>
+            {% for url in urls %}
+                <li>{{ url }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
